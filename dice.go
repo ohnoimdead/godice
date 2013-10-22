@@ -30,10 +30,21 @@ func main() {
 			qty, err := strconv.Atoi(parts[0])
 			if err != nil {
 				fmt.Println(err)
+				continue
 			}
+			if qty <= 0 {
+				fmt.Println("Quantity must be > 0")
+				continue
+			}
+
 			sides, err := strconv.Atoi(parts[1])
 			if err != nil {
 				fmt.Println(err)
+				continue
+			}
+			if sides <= 0 {
+				fmt.Println("Number of sides must be > 0")
+				continue
 			}
 
 			total := 0
@@ -44,7 +55,7 @@ func main() {
 					fmt.Print(" + ")
 				}
 
-				fmt.Print(strconv.Itoa(val))
+				fmt.Print(val)
 				total += val
 			}
 
